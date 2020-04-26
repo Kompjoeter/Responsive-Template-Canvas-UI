@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas UI</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <div class="canvas-holder">
+        <div class="active" id="menu">
+            <div class="menu-bar">
+                <button class="menu-toggle" onclick="menuToggle()">▼</button>
+                <button id="sub-menu-nav-toggle" onclick="subMenuNavToggle()">Menu One</button>
+            </div>
+            <div id="sub-menu-holder">
+                <div id="sub-menu-nav">
+                    <button class="sub-menu-toggle active" name="sub-menu-0" onclick="subMenuToggle(this)">Sub-Menu-Zero</button>
+                    <button class="sub-menu-toggle" name="sub-menu-1" onclick="subMenuToggle(this)">Sub-Menu-One</button>
+                    <button class="sub-menu-toggle" name="sub-menu-2" onclick="subMenuToggle(this)">Sub-Menu-Two</button>
+                </div>
+
+                <div class="sub-menu active" name="sub-menu-0">
+                    <h1>0</h1>
+                </div>
+                <div class="sub-menu" name="sub-menu-1">
+                    <h1>1</h1>
+                </div>
+                <div class="sub-menu" name="sub-menu-2">
+                    <h1>2</h1>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+
+<script>
+     let c = document.getElementById('canvas');
+    c.width = window.innerWidth;
+    c.height = window.innerHeight;
+
+    let ctx = c.getContext("2d");
+    ctx.fillStyle = "#333";
+    ctx.fillRect(0,0,c.width,c.height);
+
+    var subMenuActive =  document.querySelector(".sub-menu.active");
+    subMenuActive.style.display = 'initial';
+    subMenuNavDisplayActive();
+    menuToggle();
+
+    function menuToggle()
+    {
+        let menu = document.getElementById('menu');
+        let subMenuNavToggle = document.getElementById('sub-menu-nav-toggle');
+        let subMenuHolder = document.getElementById('sub-menu-holder');
+
+        menu.classList.toggle('active');
+
+        if(menu.classList.contains('active'))
+        {
+            subMenuNavToggle.style.display = 'initial';
+            subMenuHolder.style.display = 'initial';
+        }
+        else
+        {
+            subMenuNavToggle.style.display = 'none';
+            subMenuHolder.style.display = 'none';
+        }
+    }
+
+    function subMenuNavToggle()
+    {
+        let subMenuNav = document.getElementById('sub-menu-nav');
+
+        subMenuNav.classList.toggle('active');
+
+        if (subMenuNav.classList.contains('active'))
+        {
+            subMenuNav.style.display = 'grid';
+            subMenuActive.style.display = 'none';
+        }
+        else
+        {
+            subMenuNav.style.display = 'none';
+            subMenuActive.style.display = 'initial';
+        }
+    }
+
+    function subMenuNavDisplayActive()
+    {
+        //Display Active Sub-Menu on Sub-Menu-Nav-Toggle 
+        let target = '.sub-menu-toggle[name='+subMenuActive.getAttribute('name')+']';
+        let subMenuToggle = document.querySelector(target);
+        document.getElementById('sub-menu-nav-toggle').innerText = subMenuToggle.innerText;
+    }
+
+    function subMenuToggle(target)
+    {
+        let selectorString = '.sub-menu[name='+target.name+']';
+        let targetSubMenu = document.querySelector(selectorString);
+        let subMenuToggleActive = document.querySelector('.sub-menu-toggle.active');
+
+        subMenuToggleActive.classList.toggle('active');
+        target.classList.toggle('active');
+        subMenuActive.classList.toggle('active');
+        targetSubMenu.classList.toggle('active');
+        subMenuActive = targetSubMenu;
+
+        subMenuNavDisplayActive();
+    }
+
+
+
+</script>
+
+</html>

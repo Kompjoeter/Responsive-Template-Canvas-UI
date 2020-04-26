@@ -1,0 +1,116 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button
+{
+    outline: none;
+    font-size: .5em;
+}
+/*--------------------*/
+
+.canvas-holder
+{
+    display: grid;
+}
+
+canvas
+{
+    grid-column: 1;
+}
+
+#menu
+{
+    display: grid;
+    grid-template-rows: 1fr, 1fr;
+    position: absolute;
+}
+
+#menu.active
+{
+    width: 100%;
+}
+
+/*----------Menu-Bar----------*/
+.menu-bar
+{
+    grid-row: 1;
+
+    background-color: #DDD;
+    height: 1em;
+}
+
+.menu-toggle
+{
+    float: left;
+    height: 100%;
+    padding: 0 .5em 0 .5em;
+
+    background: #DDD;
+    border: none;
+}
+
+.menu-toggle:hover
+{
+    background-color: #FFF;
+}
+
+#sub-menu-nav-toggle
+{
+    float: left;
+    height: 100%;
+    padding: 0 .5em 0 .5em;
+
+    background-color: #EEE;
+    border: none;
+}
+
+#sub-menu-nav-toggle:hover
+{
+    background-color: #FFF;
+}
+/*--------------------*/
+
+#sub-menu-holder
+{
+    grid-row: 2/3;
+    height: 100px;
+
+    background-color: #EEE;
+}
+
+.sub-menu
+{
+    display: none;
+}
+
+.sub-menu-toggle
+{
+    background-color: #DDD;
+    border: none;
+
+    text-align: left;
+    padding: .5em;
+}
+
+.sub-menu-toggle.active
+{
+    background-color: #EEE;
+}
+
+.sub-menu-toggle:hover
+{
+    background-color: #FFF;
+}
+
+#sub-menu-nav
+{
+    display: none;
+}
