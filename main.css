@@ -45,9 +45,10 @@ canvas
 
     background-color: #DDD;
     height: 2em;
+    border: 1px darkgray solid;
 }
 
-.menu-toggle
+#menu-toggle
 {
     float: left;
     height: 100%;
@@ -55,9 +56,10 @@ canvas
 
     background: #DDD;
     border: none;
+    border-right: 1px darkgray solid;
 }
 
-.menu-toggle:hover
+#menu-toggle:hover
 {
     background-color: #FFF;
 }
@@ -70,6 +72,7 @@ canvas
 
     background-color: #EEE;
     border: none;
+    border-right: 1px darkgray solid;
 }
 
 #sub-menu-nav-toggle:hover
@@ -81,7 +84,8 @@ canvas
 #sub-menu-holder
 {
     grid-row: 2/3;
-    height: 100px;
+    min-height: 100px;
+    padding: 1em;
 
     background-color: #EEE;
 }
@@ -89,6 +93,12 @@ canvas
 .sub-menu
 {
     display: none;
+}
+
+.sub-menu input
+{
+    display: grid;
+    margin-bottom: 1em;
 }
 
 .sub-menu-toggle
@@ -113,4 +123,5 @@ canvas
 #sub-menu-nav
 {
     display: none;
+    padding: -1em;
 }

@@ -10,7 +10,7 @@
     <div class="canvas-holder">
         <div class="active" id="menu">
             <div class="menu-bar">
-                <button class="menu-toggle" onclick="menuToggle()">▼</button>
+                <button id="menu-toggle" onclick="menuToggle()">▼</button>
                 <button id="sub-menu-nav-toggle" onclick="subMenuNavToggle()">Menu One</button>
             </div>
             <div id="sub-menu-holder">
@@ -21,13 +21,25 @@
                 </div>
 
                 <div class="sub-menu active" name="sub-menu-0">
-                    <h1>0</h1>
+                    <p>Range 0</p>
+                    <input type="range">
+                    <p>Range 1</p>
+                    <input type="range">
+                    <p>Range 2</p>
+                    <input type="range">
                 </div>
                 <div class="sub-menu" name="sub-menu-1">
-                    <h1>1</h1>
+                    <input type='button' value='Button'>
+                    <input type='button' value='Button'>
+                    <input type='button' value='Button'>
                 </div>
                 <div class="sub-menu" name="sub-menu-2">
-                    <h1>2</h1>
+                    <p>Checkbox 0</p>
+                    <input type='checkbox' value='Checkbox'>
+                    <p>Checkbox 1</p>
+                    <input type='checkbox' value='Checkbox'>
+                    <p>Checkbox 2</p>
+                    <input type='checkbox' value='Checkbox'>
                 </div>
             </div>
         </div>
@@ -53,6 +65,7 @@
     function menuToggle()
     {
         let menu = document.getElementById('menu');
+        let menuToggle = document.getElementById('menu-toggle');
         let subMenuNavToggle = document.getElementById('sub-menu-nav-toggle');
         let subMenuHolder = document.getElementById('sub-menu-holder');
 
@@ -60,11 +73,13 @@
 
         if(menu.classList.contains('active'))
         {
+            menuToggle.innerText = "△";
             subMenuNavToggle.style.display = 'initial';
             subMenuHolder.style.display = 'initial';
         }
         else
         {
+            menuToggle.innerText = "▼";
             subMenuNavToggle.style.display = 'none';
             subMenuHolder.style.display = 'none';
         }
@@ -73,17 +88,20 @@
     function subMenuNavToggle()
     {
         let subMenuNav = document.getElementById('sub-menu-nav');
+        let subMenuHolder = document.getElementById('sub-menu-holder');
 
         subMenuNav.classList.toggle('active');
 
         if (subMenuNav.classList.contains('active'))
         {
             subMenuNav.style.display = 'grid';
+            subMenuHolder.style.padding = '0';
             subMenuActive.style.display = 'none';
         }
         else
         {
             subMenuNav.style.display = 'none';
+            subMenuHolder.style.padding = '1em';
             subMenuActive.style.display = 'initial';
         }
     }
@@ -109,6 +127,7 @@
         subMenuActive = targetSubMenu;
 
         subMenuNavDisplayActive();
+        subMenuNavToggle();
     }
 
 
