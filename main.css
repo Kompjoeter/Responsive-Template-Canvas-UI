@@ -31,7 +31,6 @@ canvas
     display: grid;
     grid-template-rows: 1fr, 1fr;
     position: absolute;
-    border: 2px red solid;
 }
 
 #menu.active
@@ -45,7 +44,7 @@ canvas
     grid-row: 1;
 
     background-color: #DDD;
-    height: 1em;
+    height: 2em;
 }
 
 .menu-toggle
