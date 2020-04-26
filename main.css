@@ -102,12 +102,13 @@ canvas
     display: none;
 }
 
-.sub-menu input
+#sub-menu-nav
 {
-    display: grid;
-    margin-bottom: 1em;
+    display: none;
+    padding: -1em;
 }
 
+/*----------Sub-Menu-Toggle----------*/
 .sub-menu-toggle
 {
     background-color: #DDD;
@@ -127,8 +128,81 @@ canvas
     background-color: #FFF;
 }
 
-#sub-menu-nav
+/*--------------------*/
+
+
+.sub-menu input, .sub-menu label
 {
-    display: none;
-    padding: -1em;
+    margin-bottom: .75em;
 }
+
+.sub-menu input[type='button']
+{
+    padding: .75em;
+
+    background: #EEE;
+    border: 1px darkgray solid;
+    font-size: 1em;
+}
+
+.sub-menu input[type='button']:hover
+{
+    background-color: #FFF;
+}
+
+.input-range
+{
+    border: 1px darkgray solid;
+    padding: .5em;
+    margin-bottom: .75em;
+}
+
+.input-range label
+{
+    display: block
+}
+
+.input-range label b
+{
+    color: #555;
+}
+
+  
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: .5em;
+    background: #CCC;
+    outline: none;
+  }
+    
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    background: #EEE;
+    border: 1px darkgray solid;
+    cursor: pointer;
+  }
+
+  .slider::-webkit-slider-thumb:hover
+  {
+      background-color: #FFF;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #EEE;
+    border: 1px darkgray solid;
+    cursor: pointer;
+  }
+
+  .slider::-moz-range-thumb:hover 
+  {
+    background-color: #FFF;
+  }

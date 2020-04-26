@@ -21,25 +21,26 @@
                 </div>
 
                 <div class="sub-menu active" name="sub-menu-0">
-                    <p>Range 0</p>
-                    <input type="range">
-                    <p>Range 1</p>
-                    <input type="range">
-                    <p>Range 2</p>
-                    <input type="range">
+                    <input type='button' value='Button'>
+                    <input type='button' value='Button'>
+                    <input type='button' value='Button'>
+                    <input type='button' value='Button'>
+                    <div class='input-range'>
+                        <label for="range-0">Range-0</label>
+                        <input type='range' class="slider" id='range-0' name='range-0' displayName='Range-0' oninput='displayValue(this)'>
+                    </div>
+                    <div class='input-range'>
+                        <label for="range-1">Range-1</label>
+                        <input type='range' class="slider" id='range-1' name='range-1' displayName='Range-1' oninput='displayValue(this)'>
+                    </div>
                 </div>
+
+
                 <div class="sub-menu" name="sub-menu-1">
-                    <input type='button' value='Button'>
-                    <input type='button' value='Button'>
-                    <input type='button' value='Button'>
+              
                 </div>
                 <div class="sub-menu" name="sub-menu-2">
-                    <p>Checkbox 0</p>
-                    <input type='checkbox' value='Checkbox'>
-                    <p>Checkbox 1</p>
-                    <input type='checkbox' value='Checkbox'>
-                    <p>Checkbox 2</p>
-                    <input type='checkbox' value='Checkbox'>
+
                 </div>
             </div>
         </div>
@@ -58,9 +59,18 @@
     ctx.fillRect(0,0,c.width,c.height);
 
     var subMenuActive =  document.querySelector(".sub-menu.active");
-    subMenuActive.style.display = 'initial';
-    subMenuNavDisplayActive();
-    menuToggle();
+
+    onload = function initialize()
+    {
+        subMenuActive.style.display = 'initial';
+        subMenuNavDisplayActive();
+        menuToggle();
+        let slider = document.getElementsByClassName('slider');
+        for(let i = 0; i < slider.length; i++)
+        {
+            displayValue(slider[i]);
+        }
+    }
 
     function menuToggle()
     {
@@ -138,6 +148,12 @@
         subMenuNavToggle();
     }
 
+    function displayValue(target)
+    {
+        let selectorString = '[for="'+target.id+'"]';
+        selectorString.charAt(0).toUpperCase();
+        document.querySelector(selectorString).innerHTML = target.getAttribute('displayName') +': '+ '<b>'+target.value+'</b>';
+    }
 
 
 </script>
