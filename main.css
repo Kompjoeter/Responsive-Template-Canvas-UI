@@ -12,6 +12,7 @@ body
 button
 {
     outline: none;
+    font-size: 1em;
 }
 /*--------------------*/
 
@@ -43,7 +44,7 @@ canvas
     grid-row: 1;
 
     background-color: #DDD;
-    height: 1em;
+    height: 2em;
 }
 
 .menu-toggle
