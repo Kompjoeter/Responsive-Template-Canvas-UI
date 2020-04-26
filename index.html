@@ -10,7 +10,7 @@
     <div class="canvas-holder">
         <div class="active" id="menu">
             <div class="menu-bar">
-                <button id="menu-toggle" onclick="menuToggle()">▼</button>
+                <button id="menu-toggle" onclick="menuToggle()">▽</button>
                 <button id="sub-menu-nav-toggle" onclick="subMenuNavToggle()">Menu One</button>
             </div>
             <div id="sub-menu-holder">
@@ -70,6 +70,7 @@
         let subMenuHolder = document.getElementById('sub-menu-holder');
 
         menu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
 
         if(menu.classList.contains('active'))
         {
@@ -79,7 +80,7 @@
         }
         else
         {
-            menuToggle.innerText = "▼";
+            menuToggle.innerText = "▽";
             subMenuNavToggle.style.display = 'none';
             subMenuHolder.style.display = 'none';
         }
@@ -104,6 +105,8 @@
             subMenuHolder.style.padding = '1em';
             subMenuActive.style.display = 'initial';
         }
+
+        subMenuNavDisplayActive();
     }
 
     function subMenuNavDisplayActive()
@@ -111,7 +114,12 @@
         //Display Active Sub-Menu on Sub-Menu-Nav-Toggle 
         let target = '.sub-menu-toggle[name='+subMenuActive.getAttribute('name')+']';
         let subMenuToggle = document.querySelector(target);
-        document.getElementById('sub-menu-nav-toggle').innerText = subMenuToggle.innerText;
+        let subMenuSymbol = '▽';
+        if (document.getElementById('sub-menu-nav').classList.contains('active'))
+        {
+            subMenuSymbol = '△';
+        }
+        document.getElementById('sub-menu-nav-toggle').innerText = subMenuToggle.innerText +' '+subMenuSymbol;
     }
 
     function subMenuToggle(target)

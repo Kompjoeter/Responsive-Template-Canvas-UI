@@ -31,11 +31,18 @@ canvas
     display: grid;
     grid-template-rows: 1fr, 1fr;
     position: absolute;
+    opacity: 50%;
+}
+
+#menu:hover
+{
+    opacity: 100%;
 }
 
 #menu.active
 {
     width: 100%;
+    opacity: 100%;
 }
 
 /*----------Menu-Bar----------*/
