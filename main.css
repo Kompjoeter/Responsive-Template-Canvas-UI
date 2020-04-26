@@ -12,6 +12,7 @@ body
 button
 {
     outline: none;
+    font-size: 1em;
 }
 /*--------------------*/
 
@@ -30,6 +31,7 @@ canvas
     display: grid;
     grid-template-rows: 1fr, 1fr;
     position: absolute;
+    border: 2px red solid;
 }
 
 #menu.active
