@@ -10,7 +10,7 @@
     <div class="canvas-holder">
         <div class="active" id="menu">
             <div class="menu-bar">
-                <button id="menu-toggle" onclick="menuToggle()">▼</button>
+                <button id="menu-toggle" onclick="menuToggle()">▽</button>
                 <button id="sub-menu-nav-toggle" onclick="subMenuNavToggle()">Menu One</button>
             </div>
             <div id="sub-menu-holder">
@@ -21,25 +21,26 @@
                 </div>
 
                 <div class="sub-menu active" name="sub-menu-0">
-                    <p>Range 0</p>
-                    <input type="range">
-                    <p>Range 1</p>
-                    <input type="range">
-                    <p>Range 2</p>
-                    <input type="range">
+                    <input type='button' value='Button'>
+                    <input type='button' value='Button'>
+                    <input type='button' value='Button'>
+                    <input type='button' value='Button'>
+                    <div class='input-range'>
+                        <label for="range-0">Range-0</label>
+                        <input type='range' class="slider" id='range-0' name='range-0' displayName='Range-0' oninput='displayValue(this)'>
+                    </div>
+                    <div class='input-range'>
+                        <label for="range-1">Range-1</label>
+                        <input type='range' class="slider" id='range-1' name='range-1' displayName='Range-1' oninput='displayValue(this)'>
+                    </div>
                 </div>
+
+
                 <div class="sub-menu" name="sub-menu-1">
-                    <input type='button' value='Button'>
-                    <input type='button' value='Button'>
-                    <input type='button' value='Button'>
+              
                 </div>
                 <div class="sub-menu" name="sub-menu-2">
-                    <p>Checkbox 0</p>
-                    <input type='checkbox' value='Checkbox'>
-                    <p>Checkbox 1</p>
-                    <input type='checkbox' value='Checkbox'>
-                    <p>Checkbox 2</p>
-                    <input type='checkbox' value='Checkbox'>
+
                 </div>
             </div>
         </div>
@@ -58,9 +59,18 @@
     ctx.fillRect(0,0,c.width,c.height);
 
     var subMenuActive =  document.querySelector(".sub-menu.active");
-    subMenuActive.style.display = 'initial';
-    subMenuNavDisplayActive();
-    menuToggle();
+
+    onload = function initialize()
+    {
+        subMenuActive.style.display = 'initial';
+        subMenuNavDisplayActive();
+        menuToggle();
+        let slider = document.getElementsByClassName('slider');
+        for(let i = 0; i < slider.length; i++)
+        {
+            displayValue(slider[i]);
+        }
+    }
 
     function menuToggle()
     {
@@ -70,6 +80,7 @@
         let subMenuHolder = document.getElementById('sub-menu-holder');
 
         menu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
 
         if(menu.classList.contains('active'))
         {
@@ -79,7 +90,7 @@
         }
         else
         {
-            menuToggle.innerText = "▼";
+            menuToggle.innerText = "▽";
             subMenuNavToggle.style.display = 'none';
             subMenuHolder.style.display = 'none';
         }
@@ -104,6 +115,8 @@
             subMenuHolder.style.padding = '1em';
             subMenuActive.style.display = 'initial';
         }
+
+        subMenuNavDisplayActive();
     }
 
     function subMenuNavDisplayActive()
@@ -111,7 +124,12 @@
         //Display Active Sub-Menu on Sub-Menu-Nav-Toggle 
         let target = '.sub-menu-toggle[name='+subMenuActive.getAttribute('name')+']';
         let subMenuToggle = document.querySelector(target);
-        document.getElementById('sub-menu-nav-toggle').innerText = subMenuToggle.innerText;
+        let subMenuSymbol = '▽';
+        if (document.getElementById('sub-menu-nav').classList.contains('active'))
+        {
+            subMenuSymbol = '△';
+        }
+        document.getElementById('sub-menu-nav-toggle').innerText = subMenuToggle.innerText +' '+subMenuSymbol;
     }
 
     function subMenuToggle(target)
@@ -130,6 +148,12 @@
         subMenuNavToggle();
     }
 
+    function displayValue(target)
+    {
+        let selectorString = '[for="'+target.id+'"]';
+        selectorString.charAt(0).toUpperCase();
+        document.querySelector(selectorString).innerHTML = target.getAttribute('displayName') +': '+ '<b>'+target.value+'</b>';
+    }
 
 
 </script>
