@@ -19,11 +19,7 @@ button
 .canvas-holder
 {
     display: grid;
-}
-
-canvas
-{
-    grid-column: 1;
+    grid-template-columns: repeat(12,1fr);
 }
 
 #menu
@@ -95,11 +91,16 @@ canvas
     padding: 1em;
 
     background-color: #EEE;
+    border: 1px darkgray solid;
+    border-top: none;
 }
 
 .sub-menu
 {
     display: none;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1em;
+
 }
 
 #sub-menu-nav
@@ -129,20 +130,20 @@ canvas
 }
 
 /*--------------------*/
-
-
-.sub-menu input, .sub-menu label
+.sub-menu label
 {
     margin-bottom: .75em;
 }
 
 .sub-menu input[type='button']
 {
+    grid-column: span 6;
     padding: .75em;
 
     background: #EEE;
     border: 1px darkgray solid;
     font-size: 1em;
+    outline: none;
 }
 
 .sub-menu input[type='button']:hover
@@ -152,8 +153,16 @@ canvas
 
 .input-range
 {
+    grid-column: span 12;
     border: 1px darkgray solid;
     padding: .5em;
+}
+
+.input-range input
+{
+    border: 1px darkgray solid;
+    padding: .5em;
+
     margin-bottom: .75em;
 }
 
@@ -166,8 +175,7 @@ canvas
 {
     color: #555;
 }
-
-  
+ 
   /* The slider itself */
   .slider {
     -webkit-appearance: none;
@@ -206,3 +214,16 @@ canvas
   {
     background-color: #FFF;
   }
+
+    @media screen and (min-width: 768px) 
+    {
+        #menu.active
+        {
+            width: 50%;
+        }
+
+        .sub-menu input[type='button']
+        {
+            grid-column: span 3;
+        }
+    }
