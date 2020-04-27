@@ -130,8 +130,6 @@ button
 }
 
 /*--------------------*/
-
-
 .sub-menu label
 {
     margin-bottom: .75em;
@@ -162,6 +160,9 @@ button
 
 .input-range input
 {
+    border: 1px darkgray solid;
+    padding: .5em;
+
     margin-bottom: .75em;
 }
 
@@ -174,8 +175,7 @@ button
 {
     color: #555;
 }
-
-  
+ 
   /* The slider itself */
   .slider {
     -webkit-appearance: none;
