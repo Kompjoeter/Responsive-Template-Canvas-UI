@@ -1,54 +1,53 @@
+/*----------Aesthetic-CSS-Variables----------*/
+:root
+{
+    --color-darkest: #CCC;
+    --color-dark: #DDD;
+    --color-medium: #EEE;
+    --color-light: #FFF;
+
+    --color-accent: #A9A9A9;
+    --color-text-bold: #555;
+}
+
+/*----------FUNCTIONAL-CSS----------*/
 *
 {
     margin: 0;
     padding: 0;
 }
 
-body
-{
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-button
-{
-    outline: none;
-    font-size: 1em;
-}
-/*--------------------*/
-
-.canvas-holder
+/*----------Canvas-UI-Holder----------*/
+.main-content-holder
 {
     display: grid;
     grid-template-columns: repeat(12,1fr);
 }
 
+/*----------UI-Holder----------*/
 #menu
 {
     display: grid;
     grid-template-rows: 1fr, 1fr;
     position: absolute;
-    opacity: 50%;
-}
-
-#menu:hover
-{
-    opacity: 100%;
 }
 
 #menu.active
 {
     width: 100%;
-    opacity: 100%;
 }
 
 /*----------Menu-Bar----------*/
+button
+{
+    outline: none;
+    font-size: 1em;
+}
+
 .menu-bar
 {
     grid-row: 1;
-
-    background-color: #DDD;
     height: 2em;
-    border: 1px darkgray solid;
 }
 
 #menu-toggle
@@ -56,15 +55,6 @@ button
     float: left;
     height: 100%;
     padding: 0 .5em 0 .5em;
-
-    background: #DDD;
-    border: none;
-    border-right: 1px darkgray solid;
-}
-
-#menu-toggle:hover
-{
-    background-color: #FFF;
 }
 
 #sub-menu-nav-toggle
@@ -72,27 +62,15 @@ button
     float: left;
     height: 100%;
     padding: 0 .5em 0 .5em;
-
-    background-color: #EEE;
-    border: none;
-    border-right: 1px darkgray solid;
 }
 
-#sub-menu-nav-toggle:hover
-{
-    background-color: #FFF;
-}
-/*--------------------*/
+/*----------Sub-Menu-Contents----------*/
 
 #sub-menu-holder
 {
     grid-row: 2/3;
     min-height: 100px;
     padding: 1em;
-
-    background-color: #EEE;
-    border: 1px darkgray solid;
-    border-top: none;
 }
 
 .sub-menu
@@ -106,64 +84,44 @@ button
 #sub-menu-nav
 {
     display: none;
-    padding: -1em;
 }
 
-/*----------Sub-Menu-Toggle----------*/
 .sub-menu-toggle
 {
-    background-color: #DDD;
-    border: none;
-
     text-align: left;
     padding: .5em;
 }
 
-.sub-menu-toggle.active
-{
-    background-color: #EEE;
-}
-
-.sub-menu-toggle:hover
-{
-    background-color: #FFF;
-}
-
-/*--------------------*/
-.sub-menu label
+.sub-menu label:not(.input-checkbox label)
 {
     margin-bottom: .75em;
 }
 
+/*----------Sub-Menu-Inputs----------*/
 .sub-menu input[type='button']
 {
     grid-column: span 6;
     padding: .75em;
 
-    background: #EEE;
-    border: 1px darkgray solid;
     font-size: 1em;
     outline: none;
-}
-
-.sub-menu input[type='button']:hover
-{
-    background-color: #FFF;
 }
 
 .input-range
 {
     grid-column: span 12;
-    border: 1px darkgray solid;
     padding: .5em;
 }
 
 .input-range input
 {
-    border: 1px darkgray solid;
-    padding: .5em;
-
     margin-bottom: .75em;
+}
+
+.input-checkbox
+{
+    grid-column: span 6;
+    padding: .75em;
 }
 
 .input-range label
@@ -171,59 +129,218 @@ button
     display: block
 }
 
+/*----------FUNCTION-CSS-RESPONSIVE----------*/
+@media screen and (min-width: 768px) 
+{
+    #menu.active
+    {
+        width: 50%;
+    }
+
+    .sub-menu input[type='button']
+    {
+        grid-column: span 3;
+    }
+
+    .sub-menu .input-checkbox
+    {
+        grid-column: span 6;
+    }
+}
+
+/*----------AESTHETIC-CSS----------*/
+/*-----Overall-Font-----*/
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*-----Opacity-Inactive-----*/
+#menu
+{
+    opacity: 50%;
+}
+
+/*-----Opacity-Active-Hover-----*/
+#menu:hover, #menu.active
+{
+    opacity: 100%;
+}
+
+/*-----Background-Color-Dark-----*/
+.menu-bar, #menu-toggle, #sub-menu-nav-toggle, #sub-menu-toggle
+{
+    background-color: var(--color-dark);
+}
+
+/*-----Background-Color-Medium-----*/
+#sub-menu-nav-toggle, .sub-menu-toggle.active, #sub-menu-holder
+{
+    background-color: var(--color-medium);
+}
+
+/*-----Background-Color-Light-(Hover)-----*/
+#menu-toggle:hover, #sub-menu-nav-toggle:hover, .sub-menu-toggle:hover
+{
+    background-color: var(--color-light);
+}
+
+/*-----Border-Full-----*/
+.menu-bar, #sub-menu-holder
+{
+    border: 1px var(--color-accent) solid;
+}
+
+/*-----Border-Full-Cancel-----*/
+#sub-menu-toggle, #menu-toggle, #sub-menu-nav-toggle, button
+{
+    border: none;
+}
+
+/*-----Border-Top-Cancel-----*/
+#sub-menu-holder
+{
+    border-top: none;
+}
+
+/*-----Border-Right-----*/
+#menu-toggle, #sub-menu-nav-toggle
+{
+    border-right: 1px var(--color-accent) solid;
+}
+
+/*--------------------*/
+/*-----Sub-Menu-Input-----*/
+
+/*-----Background-Color-Medium-----*/
+.sub-menu input[type='button']
+{
+    background-color: var(--color-medium);
+}
+
+/*------Background-Color-Light-(Hover)-----*/
+.sub-menu input[type='button']:hover
+{
+    background-color: var(--color-light);
+}
+
+/*-----Border-Full-----*/
+.sub-menu input[type='button'], .input-range, .input-checkbox
+{
+    border: 1px var(--color-accent) solid;
+}
+
+/*-----Text-Color-Emphasized-----*/
 .input-range label b
 {
-    color: #555;
+    color: var(--color-text-bold);
 }
- 
-  /* The slider itself */
-  .slider {
+
+/*-----Custom-Slider-----*/
+.slider 
+{
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
     height: .5em;
-    background: #CCC;
+    background: var(--color-darkest);
     outline: none;
-  }
-    
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
+}
+
+.slider::-webkit-slider-thumb 
+{
     -webkit-appearance: none;
     appearance: none;
     width: 1.5em;
     height: 1.5em;
-    background: #EEE;
-    border: 1px darkgray solid;
+    background: var(--color-medium);
+    border: 1px var(--color-accent) solid;
     cursor: pointer;
-  }
+}
 
-  .slider::-webkit-slider-thumb:hover
-  {
-      background-color: #FFF;
-  }
-  
-  .slider::-moz-range-thumb {
+.slider::-webkit-slider-thumb:hover
+{
+    background-color: var(--color-light);
+}
+
+.slider::-moz-range-thumb 
+{
     width: 25px;
     height: 25px;
-    background: #EEE;
-    border: 1px darkgray solid;
+    background: var(--color-medium);
+    border: 1px var(--color-accent) solid;
     cursor: pointer;
+}
+
+.slider::-moz-range-thumb:hover 
+{
+    background-color: var(--color-light);
+}
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 1.5em;
+    cursor: pointer;
+    font-size: 1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
-
-  .slider::-moz-range-thumb:hover 
-  {
-    background-color: #FFF;
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
   }
-
-    @media screen and (min-width: 768px) 
-    {
-        #menu.active
-        {
-            width: 50%;
-        }
-
-        .sub-menu input[type='button']
-        {
-            grid-column: span 3;
-        }
-    }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 1em;
+    width: 1em;
+    background-color: var(--color-dark);
+    border: 1px var(--color-accent) solid;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: var(--color-light);
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: var(--color-light);
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: .25em;
+    top: 0em;
+    width: .4em;
+    height: .5em;
+    border: solid var(--color-text-bold);
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
