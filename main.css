@@ -87,6 +87,7 @@ button
     float: left;
     margin: -1em;
     width: 100%;
+    transform: translateX(-1px);
 }
 
 .sub-menu-toggle
@@ -204,12 +205,6 @@ body
 #sub-menu-holder, .sub-menu-toggle
 {
     border-top: none;
-}
-
-.sub-menu-toggle
-{
-    border-left: none;
-    border-right: none;
 }
 
 /*-----Border-Right-----*/
