@@ -69,7 +69,7 @@ button
 #sub-menu-holder
 {
     grid-row: 2/3;
-    min-height: 100px;
+    min-height: 200px;
     padding: 1em;
 }
 
@@ -78,12 +78,15 @@ button
     display: none;
     grid-template-columns: repeat(12, 1fr);
     gap: 1em;
-
 }
 
 #sub-menu-nav
 {
+    position: absolute;
     display: none;
+    float: left;
+    margin: -1em;
+    width: 100%;
 }
 
 .sub-menu-toggle
@@ -168,7 +171,7 @@ body
 }
 
 /*-----Background-Color-Dark-----*/
-.menu-bar, #menu-toggle, #sub-menu-nav-toggle, #sub-menu-toggle
+.menu-bar, #menu-toggle, #sub-menu-nav-toggle, .sub-menu-toggle
 {
     background-color: var(--color-dark);
 }
@@ -186,21 +189,27 @@ body
 }
 
 /*-----Border-Full-----*/
-.menu-bar, #sub-menu-holder
+.menu-bar, #sub-menu-holder, .sub-menu-toggle
 {
     border: 1px var(--color-accent) solid;
 }
 
 /*-----Border-Full-Cancel-----*/
-#sub-menu-toggle, #menu-toggle, #sub-menu-nav-toggle, button
+#menu-toggle, #sub-menu-nav-toggle, button
 {
     border: none;
 }
 
 /*-----Border-Top-Cancel-----*/
-#sub-menu-holder
+#sub-menu-holder, .sub-menu-toggle
 {
     border-top: none;
+}
+
+.sub-menu-toggle
+{
+    border-left: none;
+    border-right: none;
 }
 
 /*-----Border-Right-----*/

@@ -54,14 +54,14 @@ function subMenuNavToggle()
     if (subMenuNav.classList.contains('active'))
     {
         subMenuNav.style.display = 'grid';
-        subMenuHolder.style.padding = '0';
-        subMenuActive.style.display = 'none';
+        subMenuHolder.style.padding = '1em';
+        /*subMenuActive.style.display = 'none';*/
     }
     else
     {
         subMenuNav.style.display = 'none';
         subMenuHolder.style.padding = '1em';
-        subMenuActive.style.display = 'grid';
+        /*subMenuActive.style.display = 'grid';*/
     }
 
     subMenuNavDisplayActive();
