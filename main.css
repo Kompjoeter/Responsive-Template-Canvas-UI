@@ -34,6 +34,7 @@
 
 #menu.active
 {
+    display: grid;
     width: 100%;
 }
 
@@ -57,6 +58,17 @@ button
     padding: 0 .5em 0 .5em;
 }
 
+#nav
+{
+    display: none;
+    height: 100%;
+}
+
+#nav-prison
+{
+    display: none;
+}
+
 #sub-menu-nav-toggle
 {
     float: left;
@@ -68,9 +80,15 @@ button
 
 #sub-menu-holder
 {
+    display: none;
     grid-row: 2/3;
     min-height: 200px;
     padding: 1em;
+}
+
+#sub-menu-holder.active
+{
+    display: inline;
 }
 
 .sub-menu
@@ -80,14 +98,25 @@ button
     gap: 1em;
 }
 
+.sub-menu.active
+{
+    display: grid;
+}
+
 #sub-menu-nav
 {
-    position: absolute;
     display: none;
+    position: absolute;
     float: left;
     margin: -1em;
     width: 100%;
     transform: translateX(-1px);
+    z-index: 2;
+}
+
+#sub-menu-nav.active
+{
+    display: grid;
 }
 
 .sub-menu-toggle
@@ -138,7 +167,8 @@ button
 {
     #menu.active
     {
-        width: 50%;
+        width: auto;
+        min-width: 50%;
     }
 
     .sub-menu input[type='button']
@@ -235,9 +265,10 @@ body
 }
 
 /*-----Text-Color-Emphasized-----*/
-.input-range label b
+.input-range label span
 {
     color: var(--color-text-bold);
+    font-weight: bold;
 }
 
 /*-----Custom-Slider-----*/
@@ -348,3 +379,20 @@ body
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+@media screen and (min-width: 768px) 
+{
+    .sub-menu-toggle
+    {
+        height: 100%;
+        float: left;
+        padding: 0 .5em 0 .5em;
+
+        border:none;
+        border-right: 1px var(--color-accent) solid;
+    }
+    .sub-menu-toggle.active
+    {
+        border-bottom: none;
+    }
+}
