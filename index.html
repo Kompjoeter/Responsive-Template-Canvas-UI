@@ -10,35 +10,40 @@
     <div class="main-content-holder">
         <div id="menu">
             <div class="menu-bar">
-                <button id="menu-toggle" onclick="toggleMenu(this)">▽</button>
+                <button id="menu-toggle">▽</button>
                 <div id="nav">
-                    <button id="sub-menu-nav-toggle" onclick="toggleSubMenuNav()">Menu One</button>
+                    <button id="sub-menu-nav-toggle">Menu One</button>
                 </div>
                 <div id='nav-prison'></div>
             </div>
             <div id="sub-menu-holder">
                 <div id="sub-menu-nav">
-                    <button class="sub-menu-toggle active" name="sub-menu-0" onclick="toggleSubMenu(this)">Sub-Menu-Zero</button>
-                    <button class="sub-menu-toggle" name="sub-menu-1" onclick="toggleSubMenu(this)">Sub-Menu-One</button>
-                    <button class="sub-menu-toggle" name="sub-menu-2" onclick="toggleSubMenu(this)">Sub-Menu-Two</button>
+                    <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, BUT USE THE FORMAT APPLIED TO THE INPUT ELEMENTS-->
+                    <button class="sub-menu-toggle active" id="sub-menu-toggle-test"name="sub-menu-0">Sub-Menu-Zero</button>
+                    <button class="sub-menu-toggle" name="sub-menu-1">Sub-Menu-One</button>
+                    <button class="sub-menu-toggle" name="sub-menu-2">Sub-Menu-Two</button>
+                    <!---->
                 </div>
 
                 <div class="sub-menu active" name="sub-menu-0">
+                    <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, BUT USE THE FORMAT APPLIED TO THE INPUT ELEMENTS-->
                     <input type='button' value='Button'>
                     <input type='button' value='Button'>
                     <input type='button' value='Button'>
                     <input type='button' value='Button'>
                     <div class='input-range'>
                         <label for="range-0">Range-0 <span></span></label>
-                        <input type='range' class="slider" id='range-0' name='range-0' displayName='Range-0' oninput='displayChangeInputRange(this)'>
+                        <input type='range' class="slider" id='range-0' name='range-0' displayName='Range-0'>
                     </div>
                     <div class='input-range'>
                         <label for="range-1">Range-1 <span></span></label>
-                        <input type='range' class="slider" id='range-1' name='range-1' displayName='Range-1' oninput='displayChangeInputRange(this)'>
+                        <input type='range' class="slider" id='range-1' name='range-1' displayName='Range-1'>
                     </div>
+                    <!---->
                 </div>
 
                 <div class="sub-menu" name="sub-menu-1">
+                    <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, BUT USE THE FORMAT APPLIED TO THE INPUT ELEMENTS-->
                     <div class='input-checkbox'>
                         <label class="container">Checkbox-0
                         <input type="checkbox" checked="checked">
@@ -53,10 +58,12 @@
                         </label>
                     </div>
                     <input type='button' value='Button'>
+                    <!---->
                 </div>
 
                 <div class="sub-menu" name="sub-menu-2">
-                    
+                    <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, BUT USE THE FORMAT APPLIED TO THE INPUT ELEMENTS-->
+                    <!---->
                 </div>
 
             </div>

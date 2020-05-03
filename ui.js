@@ -9,25 +9,111 @@ onload = function initialize()
     ctx.fillStyle = "#333";
     ctx.fillRect(0,0,c.width,c.height);
 
-    resizing();
+    window.addEventListener("resize", function() 
+    {
+        replaceSubMenuNav();
+        setMinHeightSubMenuHolder();
+    });
+
+    //Add Event Menu-Toggle (Hide/Show Main Menu) to Menu-Toggle Button.
+    let menu = document.getElementById('menu-toggle');
+    menu.addEventListener("click",function() 
+    {
+        //Hide/Show Main-Menu.
+        toggleMenu(this);
+    });
+
+    //Add Event Sub-Menu-Navigator-Toggle (Hide/Show Sub-Menu Navigator) to Sub-Menu-Nav-Toggle Button.
+    let subMenuNavToggle = document.getElementById('sub-menu-nav-toggle');
+    subMenuNavToggle.addEventListener("click",function()
+    {
+        //Hide/Show Sub-Menu-Navigator.
+        toggleSubMenuNav();
+        //Display Active Sub-Menu in Sub-Menu-Nav-Toggle Button.
+        displayChangeSubMenuNavToggle();
+    });
+
+    //Add Event Sub-Menu-Toggle (Navigation of Sub-Menus) to all Sub-Menu-Toggle Buttons.
+    let subMenu = document.getElementsByClassName('sub-menu-toggle');
+    for(let i = 0; i < subMenu.length; i++)
+    {
+        subMenu[i].addEventListener("click", function(){
+            //Hide/Show Sub-Menu Function.
+            toggleSubMenu(this);
+            //Hide/Show Sub-Menu-Navigator.
+            toggleSubMenuNav();
+            //Display Active Sub-Menu in Sub-Menu-Nav-Toggle Button.
+            displayChangeSubMenuNavToggle();
+        });
+    }
+
+    //Input Elements
+    let slider = document.getElementsByClassName('slider');
+    for(let i = 0; i < slider.length; i++)
+    {
+        slider[i].addEventListener("input",function()
+        {
+            displayChangeInputRange(this);
+        });
+    }
+
+
+    //Prepare for use
+    replaceSubMenuNav();
     setMinHeightSubMenuHolder();
     displayChangeSubMenuNavToggle();
 }
 
-window.addEventListener("resize", resizing);
-
-function resizing()
+function setMinHeightSubMenuHolder()
 {
+    let menu = document.getElementById('menu');
+    let subMenu = document.getElementsByClassName('sub-menu');
+    let subMenuActive = document.querySelector('.sub-menu.active');
+    let subMenuToggle = document.getElementsByClassName('sub-menu-toggle');
+    let subMenuHolder = document.getElementById('sub-menu-holder');
+    
+    let isActive = menu.classList.contains('active');
+    if (!isActive)
+    {
+        menu.classList.toggle('active');
+        subMenuHolder.classList.toggle('active');
+    }
+    if (subMenuActive != null)
+    {
+        subMenuActive.classList.toggle('active');
+    }
 
+    let minHeight = 0;
+    for(let i = 0; i < subMenu.length; i++)
+    {
+        subMenu[i].classList.toggle('active');
+        if (subMenu[i].clientHeight > minHeight)
+        {
+            minHeight = subMenu[i].clientHeight;
+            console.log(minHeight);
+        }
+        subMenu[i].classList.toggle('active');
+    }
+    subMenuActive.classList.add('active');
+    setStylePropertyOfElement(subMenuHolder,'minHeight',minHeight+"px");
+
+    if (!isActive)
+    {
+        menu.classList.toggle('active');
+        subMenuHolder.classList.toggle('active');
+    }
+}
+
+function replaceSubMenuNav()
+{
     let subMenuNav = document.getElementById('sub-menu-nav');
-
     let nav = document.getElementById('nav');
     let navPrison = document.getElementById('nav-prison');
+    let subMenuToggle = document.querySelectorAll('.sub-menu-toggle');
+    let subMenuNavToggle = document.getElementById('sub-menu-nav-toggle');
+
     if (window.innerWidth >= 768)    
     {
-        let subMenuToggle = document.querySelectorAll('.sub-menu-toggle');
-        let subMenuNavToggle = document.getElementById('sub-menu-nav-toggle');
-
         navPrison.appendChild(subMenuNavToggle);
 
         for(let i = 0; i < subMenuToggle.length; i++)
@@ -37,44 +123,12 @@ function resizing()
     }
     else if (window.innerWidth < 768)
     {
-        let subMenuToggle = document.querySelectorAll('.sub-menu-toggle');
-        let subMenuNavToggle = document.getElementById('sub-menu-nav-toggle');
-
         nav.appendChild(subMenuNavToggle);
 
         for(let i = 0; i < subMenuToggle.length; i++)
         {
             subMenuNav.appendChild(subMenuToggle[i]);
         }
-    }
-}
-
-function setMinHeightSubMenuHolder()
-{
-    let subMenuHolder = document.getElementById('sub-menu-holder');
-    let menuToggleButton = document.getElementById('menu-toggle');
-    let isActive = subMenuHolder.classList.contains('active');
-    if (!isActive)
-    {
-        subMenuHolder.classList.toggle('active');
-    }
-
-    //Find 'heighest' Sub-Menu ((REDO IN OWN FUNCTION))
-    let subMenu = document.getElementsByClassName('sub-menu');
-    let  subMenuMaxHeight = 0;
-    for(let i = 0; i < subMenu.length; i++)
-    {
-        if(subMenu[i].offsetHeight > subMenuMaxHeight)
-        {
-            subMenuMaxHeight = subMenu[i].offsetHeight;
-        }
-    }
-    //Set Sub-Menu-Holder min-height to heighest Sub-Menu's height
-    subMenuHolder.style["minHeight"] = subMenuMaxHeight + "px";
-
-    if (!isActive)
-    {
-        subMenuHolder.classList.toggle('active');
     }
 }
 
@@ -101,14 +155,13 @@ function toggleMenu(trigger)
     doThingWithClassIfNotContains(menu,'active',function() { setPropertyOfElement(trigger,'innerText','▽'); });
 }
 
-function toggleSubMenuNav(trigger)
+function toggleSubMenuNav()
 {
     let subMenuNav = document.getElementById('sub-menu-nav');
-    let subMenuToggleActive = document.querySelector(".sub-menu-toggle.active");
+    //let subMenuToggleActive = document.querySelector(".sub-menu-toggle.active");
 
     //Toggle Sub-Menu-Nav and change display Icon on Sub-Menu-Nav-Toggle Button.
     subMenuNav.classList.toggle('active');
-    displayChangeSubMenuNavToggle();
 }
 
 function toggleSubMenu(trigger)
@@ -129,13 +182,10 @@ function toggleSubMenu(trigger)
 
         subMenuTarget.classList.toggle('active');
         trigger.classList.toggle('active');
-
-        //Change Sub-Menu-Nav-Toggle innerText to Active Sub-Menu.
-        displayChangeSubMenuNavToggle();
     }
-    toggleSubMenuNav();
 }
 
+//Display Input-Range Value on Label
 function displayChangeInputRange(trigger)
 {
     let selectorString = 'label[for="'+trigger.name+'"] span';
@@ -144,13 +194,13 @@ function displayChangeInputRange(trigger)
 
 }
 
+//Display Active Sub-Menu and hide/shown Icon of Menu-Navigator.
 function displayChangeSubMenuNavToggle()
 {
     let subMenuNav = document.getElementById('sub-menu-nav');
     let subMenuNavToggle = document.getElementById('sub-menu-nav-toggle');
     let subMenuToggleActive = document.querySelector(".sub-menu-toggle.active");
     
-    //Display the active Sub-Menu on the Sub-Menu-Nav-Toggle Button. If Sub-Menu-Nav not active, display different Icon.
     doThingWithClassIfContains(subMenuNav,'active',function() { setPropertyOfElement(subMenuNavToggle,'innerText',subMenuToggleActive.innerText +' △'); });
     doThingWithClassIfNotContains(subMenuNav,'active',function() { setPropertyOfElement(subMenuNavToggle,'innerText',subMenuToggleActive.innerText +' ▽'); });
 }

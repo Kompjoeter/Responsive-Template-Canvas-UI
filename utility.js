@@ -1,9 +1,3 @@
-onresize = function loading()
-{
-    let menu = document.getElementById('menu-toggle');
-        doThingWithClassIfContains(menu,'active',setStylePropertyOfElement,menu,'backgroundColor','red');
-}
-
 function setPropertyOfElement(element,property,value)
 {
     element[property] = value;
