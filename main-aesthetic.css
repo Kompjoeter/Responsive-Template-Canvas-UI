@@ -1,0 +1,263 @@
+/*----------Aesthetic-CSS-Variables----------*/
+:root
+{
+    --color-darkest: #CCC;
+    --color-dark: #DDD;
+    --color-medium: #EEE;
+    --color-light: #FFF;
+
+    --color-accent: #A9A9A9;
+    --color-text-bold: #555;
+}
+
+/*----------AESTHETIC-CSS----------*/
+/*-----Overall-Style-----*/
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+/*-----Opacity-Inactive-----*/
+#menu
+{
+    opacity: 50%;
+}
+
+/*-----Opacity-Active-Hover-----*/
+#menu:hover, #menu.active
+{
+    opacity: 100%;
+}
+
+/*-----Background-Color-Dark-----*/
+.menu-bar, #menu-toggle, #sub-menu-nav-toggle, .sub-menu-toggle
+{
+    background-color: var(--color-dark);
+}
+
+/*-----Background-Color-Medium-----*/
+#sub-menu-nav-toggle, .sub-menu-toggle.active, #sub-menu-holder
+{
+    background-color: var(--color-medium);
+}
+
+/*-----Background-Color-Light-(Hover)-----*/
+#menu-toggle:hover, #sub-menu-nav-toggle:hover, .sub-menu-toggle:hover
+{
+    background-color: var(--color-light);
+}
+
+/*-----Border-Full-----*/
+.menu-bar, #sub-menu-holder, .sub-menu-toggle
+{
+    border: 1px var(--color-accent) solid;
+}
+
+/*-----Border-Full-Cancel-----*/
+#menu-toggle, #sub-menu-nav-toggle, button
+{
+    border: none;
+}
+
+/*-----Border-Top-Cancel-----*/
+#sub-menu-holder, .sub-menu-toggle
+{
+    border-top: none;
+}
+
+/*-----Border-Right-----*/
+#menu-toggle, #sub-menu-nav-toggle
+{
+    border-right: 1px var(--color-accent) solid;
+}
+
+/*-----Box-Shadow-Bottom-----*/
+#sub-menu-nav
+{
+    -webkit-box-shadow: 0px 10px 7px -8px rgba(0,0,0,0.27);
+    -moz-box-shadow: 0px 10px 7px -8px rgba(0,0,0,0.27);
+    box-shadow: 0px 10px 7px -8px rgba(0,0,0,0.27);
+}
+
+/*--------------------*/
+/*-----Sub-Menu-Input-----*/
+/*-----Outline-----*/
+input
+{
+    outline: none;
+}
+
+/*-----Background-Color-Medium-----*/
+.sub-menu input[type='button'], .input-range, .input-text input, .link
+{
+    background-color: var(--color-medium);
+}
+
+/*------Background-Color-Light-(Hover)-----*/
+.sub-menu input[type='button']:hover, .input-text input:hover, .link:hover
+{
+    background-color: var(--color-light);
+}
+
+/*-----Border-Full-----*/
+.sub-menu input[type='button'], .input-range, .input-checkbox, .input-radio-option, .input-text, .input-text input, .link
+{
+    border: 1px var(--color-accent) solid;
+}
+
+/*-----Text-Color-Emphasized-----*/
+.input-range label span, .input-radio p span, .link a span
+{
+    color: var(--color-text-bold);
+    font-weight: bold;
+}
+
+/*CUSTOM CHECKBOX AND RADIO BUTTON*/
+.container 
+{
+    display: block;
+    position: relative;
+    padding-left: 1.5em;
+    cursor: pointer;
+    font-size: 1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  
+.container input 
+{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.checkmark 
+{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 1em;
+    width: 1em;
+    background-color: var(--color-dark);
+    border: 1px var(--color-accent) solid;
+}
+
+.input-radio-option .checkmark
+{
+    border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark 
+{
+    background-color: var(--color-light);
+}
+  
+.container input:checked ~ .checkmark 
+{
+    background-color: var(--color-light);
+}
+  
+.checkmark:after 
+{
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.container input:checked ~ .checkmark:after 
+{
+    display: block;
+}
+
+/*Checkbox Checkmark*/
+.input-checkbox .container .checkmark:after 
+{
+    left: .25em;
+    top: 0em;
+    width: .4em;
+    height: .5em;
+    border: solid var(--color-text-bold);
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/*Radio Button Checkmark*/
+.input-radio-option .container .checkmark:after 
+{
+    top: .25em;
+    left: .3em;
+    width: .4em;
+    height: .5em;
+    border-radius: 50%;
+    background: var(--color-text-bold);
+}
+
+/*CUSTOM SLIDER*/
+.slider 
+{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: .5em;
+    background: var(--color-darkest);
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb 
+{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--color-medium);
+    border: 1px var(--color-accent) solid;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:hover
+{
+    background-color: var(--color-light);
+}
+
+.slider::-moz-range-thumb 
+{
+    width: 25px;
+    height: 25px;
+    background: var(--color-medium);
+    border: 1px var(--color-accent) solid;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb:hover 
+{
+    background-color: var(--color-light);
+}
+
+/*RESPONSIVENESS (SPATIAL)*/
+@media screen and (min-width: 768px) 
+{
+    .sub-menu-toggle
+    {
+        height: 100%;
+        float: left;
+        padding: 0 .5em 0 .5em;
+
+        border:none;
+        border-right: 1px var(--color-accent) solid;
+    }
+    .sub-menu-toggle.active
+    {
+        border-bottom: none;
+    }
+}

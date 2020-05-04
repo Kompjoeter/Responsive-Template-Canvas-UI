@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canvas UI</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="main-aesthetic.css">
+    <link rel="stylesheet" type="text/css" href="main-spatial.css">
 </head>
 <body>
-    <div class="main-content-holder">
-        <div id="menu">
+    <div id="main-content-holder">
+        <div class="active" id="menu" >
             <div class="menu-bar">
                 <button id="menu-toggle">▽</button>
-                <div id="nav">
+                <div class="active" id="nav">
                     <button id="sub-menu-nav-toggle">Menu One</button>
                 </div>
                 <div id='nav-prison'></div>
             </div>
-            <div id="sub-menu-holder">
+            <div class="active" id="sub-menu-holder">
                 <div id="sub-menu-nav">
-                    <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, BUT USE THE FORMAT APPLIED TO THE INPUT ELEMENTS-->
+                    <!--SUB-MENU-NAV -- Put your 'Sub-Menu-Toggle' Buttons here. Make sure they have the same 'name' as their corresponding 'Sub-Menu'-->
                     <button class="sub-menu-toggle active" id="sub-menu-toggle-test"name="sub-menu-0">Sub-Menu-Zero</button>
                     <button class="sub-menu-toggle" name="sub-menu-1">Sub-Menu-One</button>
                     <button class="sub-menu-toggle" name="sub-menu-2">Sub-Menu-Two</button>
@@ -26,54 +27,202 @@
                 </div>
 
                 <div class="sub-menu active" name="sub-menu-0">
-                    <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, BUT USE THE FORMAT APPLIED TO THE INPUT ELEMENTS-->
-                    <input type='button' value='Button'>
-                    <input type='button' value='Button'>
-                    <input type='button' value='Button'>
-                    <input type='button' value='Button'>
+                <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, MAKE SURE TO USE THE FORMAT APPLIED TO THE EXAMPLES BELOW-->
+
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+
+                    <!--Input Range-->
                     <div class='input-range'>
                         <label for="range-0">Range-0 <span></span></label>
                         <input type='range' class="slider" id='range-0' name='range-0' displayName='Range-0'>
                     </div>
+
+                    <!--Input Range-->
                     <div class='input-range'>
                         <label for="range-1">Range-1 <span></span></label>
                         <input type='range' class="slider" id='range-1' name='range-1' displayName='Range-1'>
                     </div>
+
+                    <!--Input Text-->
+                    <div class='input-text'>
+                        <label>Input Text 2</label>
+                        <input type="text" placeholder="Placeholder">
+                    </div>
+
+                    <!--Input Text-->
+                    <div class='input-text'>
+                        <label>Input Text 1</label>
+                        <input type="text" placeholder="Placeholder">
+                    </div>
                     <!---->
+
                 </div>
 
                 <div class="sub-menu" name="sub-menu-1">
-                    <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, BUT USE THE FORMAT APPLIED TO THE INPUT ELEMENTS-->
+                <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, BUT USE THE FORMAT APPLIED TO THE INPUT ELEMENTS-->
+                    
+                    <!--Input Checkbox-->    
                     <div class='input-checkbox'>
                         <label class="container">Checkbox-0
-                        <input type="checkbox" checked="checked">
+                        <input type="checkbox">
                             <span class="checkmark"></span>
                         </label>
                     </div>
-                    <input type='button' value='Button'>
+                    
+                    <!--Input Checkbox-->   
                     <div class='input-checkbox'>
-                        <label class="container">Checkbox-0
+                        <label class="container">Checkbox-1
                             <input type="checkbox" checked="checked">
                             <span class="checkmark"></span>
                         </label>
                     </div>
-                    <input type='button' value='Button'>
+
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+                        
+                    <!--Input Radio-->
+                    <div class="input-radio">
+                        <!--Input Radio Title-->
+                        <p><span>Input-Radio</span></p>
+
+                        <!--Input Radio Option-->
+                        <div class="input-radio-option">
+                            <label for="radio-option-0" class="container">Radio-Option-0
+                                <input type="radio" id="radio-option-0" name="radio-name2" value="radio-option-0">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <!--Input Radio Option-->
+                        <div class="input-radio-option">
+                            <label for="radio-option-1" class="container">Radio-Option-1
+                                <input type="radio" id="radio-option-1" name="radio-name2" value="radio-option-1" checked="checked">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <!--Input Radio Option-->
+                        <div class="input-radio-option">
+                            <label for="radio-option-2" class="container">Radio-Option-2
+                                <input type="radio" id="radio-option-2" name="radio-name2" value="radio-option-2">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <!--Input Radio Option-->
+                        <div class="input-radio-option">
+                            <label for="radio-option-3" class="container">Radio-Option-3
+                                <input type="radio" id="radio-option-3" name="radio-name2" value="radio-option-3">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <!--Link-->
+                        <div class="link">
+                            <a href="https://github.com/RanDByyp"><span>GitHub</span></a>
+                        </div>
+                    </div>
                     <!---->
                 </div>
 
                 <div class="sub-menu" name="sub-menu-2">
                     <!--FREE TO ADD/REMOVE INPUT ELEMENTS TO YOUR LIKING, BUT USE THE FORMAT APPLIED TO THE INPUT ELEMENTS-->
-                    <!---->
-                </div>
+                    
+                    <!--Input Text-->
+                    <div class='input-text'>
+                        <label>Input Text 2</label>
+                        <input type="text" placeholder="Input-Field">
+                    </div>
 
+                    <!--Input Text-->
+                    <div class='input-text'>
+                        <label>Input Text 3</label>
+                        <input type="text" placeholder="Input-Field">
+                    </div>
+
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+
+                    <!--Input Button-->
+                    <div class="input-button">
+                        <input type='button' value='Button'>
+                    </div>
+
+                     <!--Input Range-->
+                     <div class='input-range'>
+                        <label for="range-2">Range-2 <span></span></label>
+                        <input type='range' class="slider" id='range-2' name='range-2' displayName='Range-2'>
+                    </div>
+
+                    <!--Input Checkbox-->   
+                    <div class='input-checkbox'>
+                        <label class="container">Checkbox-2
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <!--Input Text-->
+                    <div class='input-text'>
+                        <label>Input Text 1</label>
+                        <input type="text" placeholder="Input-Field">
+                    </div>
+
+                    <div class="link">
+                        <a href="https://twitter.com/RandbYyp"><span>Twitter<span></span></a>
+                    </div>
+                    <!---->
+
+                </div>
             </div>
         </div>
-
         <canvas id="canvas"></canvas>
     </div>
 </body>
-
-
 <script src="ui.js"></script>
 <script src="utility.js"></script>
 </html> 
