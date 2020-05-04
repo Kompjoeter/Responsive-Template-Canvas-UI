@@ -34,6 +34,7 @@
 
 #menu.active
 {
+    display: grid;
     width: 100%;
 }
 
@@ -57,6 +58,17 @@ button
     padding: 0 .5em 0 .5em;
 }
 
+#nav
+{
+    display: none;
+    height: 100%;
+}
+
+#nav-prison
+{
+    display: none;
+}
+
 #sub-menu-nav-toggle
 {
     float: left;
@@ -68,22 +80,50 @@ button
 
 #sub-menu-holder
 {
+    position: relative;
+    visibility: hidden;
+    display: inline;
     grid-row: 2/3;
-    min-height: 100px;
-    padding: 1em;
+    min-height: 200px;
+    padding: 0;
+}
+
+#sub-menu-holder.active
+{
+    visibility: visible;
 }
 
 .sub-menu
 {
-    display: none;
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1em;
+    display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 1em;
+}
 
+#sub-menu-holder.active .sub-menu.active
+{
+    visibility: visible;
 }
 
 #sub-menu-nav
 {
     display: none;
+    position: absolute;
+    float: left;
+    
+    width: 100%;
+    transform: translateX(-1px);
+    z-index: 2;
+}
+
+#sub-menu-nav.active
+{
+    display: grid;
 }
 
 .sub-menu-toggle
@@ -118,15 +158,57 @@ button
     margin-bottom: .75em;
 }
 
+.input-range label
+{
+    display: block
+}
+
 .input-checkbox
 {
+    display: grid;
+    grid-column: span 6;
+    padding: .75em;
+    align-content: center;
+}
+
+.input-radio
+{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 1em;
+    row-gap: .25em;
+    grid-column: span 12;
+}
+
+.input-radio p
+{
+    grid-column: span 12;
+    margin-bottom: .5em;
+}
+
+.input-radio-option
+{
+    grid-column: span 12;
+    padding: .35em;
+    margin-bottom: .5em;
+}
+
+.input-text
+{
+    display: grid;
     grid-column: span 6;
     padding: .75em;
 }
 
-.input-range label
+.input-text label
 {
-    display: block
+    margin-bottom: .25em;
+}
+
+.input-text input
+{
+    justify-self: center;
+    width: 100%;
 }
 
 /*----------FUNCTION-CSS-RESPONSIVE----------*/
@@ -134,7 +216,8 @@ button
 {
     #menu.active
     {
-        width: 50%;
+        width: auto;
+        min-width: 50%;
     }
 
     .sub-menu input[type='button']
@@ -142,7 +225,7 @@ button
         grid-column: span 3;
     }
 
-    .sub-menu .input-checkbox
+    .sub-menu .input-checkbox, .sub-menu .input-radio-option
     {
         grid-column: span 6;
     }
@@ -168,7 +251,7 @@ body
 }
 
 /*-----Background-Color-Dark-----*/
-.menu-bar, #menu-toggle, #sub-menu-nav-toggle, #sub-menu-toggle
+.menu-bar, #menu-toggle, #sub-menu-nav-toggle, .sub-menu-toggle
 {
     background-color: var(--color-dark);
 }
@@ -186,19 +269,19 @@ body
 }
 
 /*-----Border-Full-----*/
-.menu-bar, #sub-menu-holder
+.menu-bar, #sub-menu-holder, .sub-menu-toggle
 {
     border: 1px var(--color-accent) solid;
 }
 
 /*-----Border-Full-Cancel-----*/
-#sub-menu-toggle, #menu-toggle, #sub-menu-nav-toggle, button
+#menu-toggle, #sub-menu-nav-toggle, button
 {
     border: none;
 }
 
 /*-----Border-Top-Cancel-----*/
-#sub-menu-holder
+#sub-menu-holder, .sub-menu-toggle
 {
     border-top: none;
 }
@@ -213,7 +296,7 @@ body
 /*-----Sub-Menu-Input-----*/
 
 /*-----Background-Color-Medium-----*/
-.sub-menu input[type='button']
+.sub-menu input[type='button'], .input-range
 {
     background-color: var(--color-medium);
 }
@@ -225,15 +308,16 @@ body
 }
 
 /*-----Border-Full-----*/
-.sub-menu input[type='button'], .input-range, .input-checkbox
+.sub-menu input[type='button'], .input-range, .input-checkbox, .input-radio-option, .input-text
 {
     border: 1px var(--color-accent) solid;
 }
 
 /*-----Text-Color-Emphasized-----*/
-.input-range label b
+.input-range label span, .input-radio p span
 {
     color: var(--color-text-bold);
+    font-weight: bold;
 }
 
 /*-----Custom-Slider-----*/
@@ -309,6 +393,11 @@ body
     background-color: var(--color-dark);
     border: 1px var(--color-accent) solid;
   }
+
+  .input-radio-option .checkmark
+  {
+      border-radius: 50%;
+  }
   
   /* On mouse-over, add a grey background color */
   .container:hover input ~ .checkmark {
@@ -333,7 +422,7 @@ body
   }
   
   /* Style the checkmark/indicator */
-  .container .checkmark:after {
+  .input-checkbox .container .checkmark:after {
     left: .25em;
     top: 0em;
     width: .4em;
@@ -343,4 +432,34 @@ body
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
+}
+
+/* Style the indicator (dot/circle) */
+.input-radio-option .container .checkmark:after 
+{
+    top: .25em;
+    left: .3em;
+    width: .4em;
+    height: .5em;
+    border-radius: 50%;
+    background: var(--color-text-bold);
+}
+/*--------------------*/
+
+@media screen and (min-width: 768px) 
+{
+    .sub-menu-toggle
+    {
+        height: 100%;
+        float: left;
+        padding: 0 .5em 0 .5em;
+
+        border:none;
+        border-right: 1px var(--color-accent) solid;
+    }
+    .sub-menu-toggle.active
+    {
+        border-bottom: none;
+    }
+}
+
