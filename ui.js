@@ -62,7 +62,7 @@ function setSizeCanvas()
 {
     let c = document.getElementById('canvas');
     c.width = window.innerWidth;
-    c.height = window.innerHeight;
+    c.height = window.innerHeight+200;
 
     let ctx = c.getContext("2d");
     ctx.fillStyle = "#333";
@@ -159,7 +159,7 @@ function replaceSubMenuNav()
 
     //When window is equal or higher than 768 pixels,
     //display Sub-Menu Buttons in Menu Bar.
-    if (window.innerWidth >= 768)    
+    if ((window.innerWidth >= 768) && (!checkIfNavIsTooLarge()))
     {
         navPrison.appendChild(subMenuNavToggle);
 
@@ -168,9 +168,9 @@ function replaceSubMenuNav()
             nav.appendChild(subMenuToggle[i]);
         }
     }
-    //When window is lower than 768,
+    //When window is lower than 768, or Menu doesn't fit in Nav,
     //display Sub-Menu Buttons in Dropdown Menu.
-    else if (window.innerWidth < 768)
+    if ((window.innerWidth < 768) || (checkIfNavIsTooLarge()))
     {
         nav.appendChild(subMenuNavToggle);
 
@@ -179,6 +179,22 @@ function replaceSubMenuNav()
             subMenuNav.appendChild(subMenuToggle[i]);
         }
     }
+}
+
+function checkIfNavIsTooLarge()
+{
+    let nav = document.getElementById('nav');
+    let menuBar = document.getElementById('menu-bar');
+    let menuToggle = document.getElementById('menu-toggle');
+    let menu = document.getElementById('menu');
+
+    let navIsTooLarge = false;
+
+    if (nav.clientWidth > menuBar.clientWidth - menuToggle.clientWidth)
+    {
+        navIsTooLarge = true;
+    }
+    return navIsTooLarge;
 }
 
 function displayChangeSubMenuNavToggle()

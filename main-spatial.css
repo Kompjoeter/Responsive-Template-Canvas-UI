@@ -38,7 +38,7 @@ button
     font-size: 1em;
 }
 
-.menu-bar
+#menu-bar
 {
     grid-row: 1;
     height: 2em;
@@ -155,7 +155,7 @@ button
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     column-gap: 1em;
-    row-gap: .25em;
+    row-gap: .5em;
     grid-column: span 12;
 }
 

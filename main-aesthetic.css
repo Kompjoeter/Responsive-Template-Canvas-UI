@@ -35,7 +35,7 @@ a
 }
 
 /*-----Background-Color-Dark-----*/
-.menu-bar, #menu-toggle, #sub-menu-nav-toggle, .sub-menu-toggle
+#menu-bar, #menu-toggle, #sub-menu-nav-toggle, .sub-menu-toggle
 {
     background-color: var(--color-dark);
 }
@@ -53,7 +53,7 @@ a
 }
 
 /*-----Border-Full-----*/
-.menu-bar, #sub-menu-holder, .sub-menu-toggle
+#menu-bar, #sub-menu-holder, .sub-menu-toggle
 {
     border: 1px var(--color-accent) solid;
 }
