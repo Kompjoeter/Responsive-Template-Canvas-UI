@@ -260,4 +260,10 @@ input
     {
         border-bottom: none;
     }
+
+    #sub-menu-nav .sub-menu-toggle
+    {
+        border: none;
+        border-bottom: 1px var(--color-accent) solid;
+    }
 }
