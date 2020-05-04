@@ -62,7 +62,7 @@ function setSizeCanvas()
 {
     let c = document.getElementById('canvas');
     c.width = window.innerWidth;
-    c.height = window.innerHeight+200;
+    c.height = window.innerHeight;
 
     let ctx = c.getContext("2d");
     ctx.fillStyle = "#333";
