@@ -146,10 +146,10 @@ function setMinHeightSubMenuHolder()
     let actualSpace = window.innerHeight - menuBar.offsetHeight;
     if (minHeight > actualSpace)
     {
-        minHeight = actualSpace;
+        //minHeight = actualSpace;
     }
     //Set min-height of sub-menu wrapper to value of highest sub-menu.
-    setStylePropertyOfElement(subMenuHolder,'minHeight',minHeight+"px");
+    //setStylePropertyOfElement(subMenuHolder,'minHeight',minHeight+"px");
 
     //If originally hidden, hide Menu and Sub-Menu 'container' again.
     if (!isActive)
