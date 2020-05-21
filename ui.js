@@ -118,6 +118,7 @@ function toggleSubMenu(trigger)
 function setMinHeightSubMenuHolder()
 {
     let menu = document.getElementById('menu');
+    let menuBar = document.getElementById('menu-bar');
     let menuToggle = document.getElementById('menu-toggle');
     let subMenu = document.getElementsByClassName('sub-menu');
     let subMenuHolder = document.getElementById('sub-menu-holder');
@@ -138,6 +139,14 @@ function setMinHeightSubMenuHolder()
         {
             minHeight = subMenu[i].clientHeight;
         }
+    }
+    
+    //Check if min-height fits within browser.
+    //If not, set min-height to the amount of vertical space that is left.
+    let actualSpace = window.innerHeight - menuBar.offsetHeight;
+    if (minHeight > actualSpace)
+    {
+        minHeight = actualSpace;
     }
     //Set min-height of sub-menu wrapper to value of highest sub-menu.
     setStylePropertyOfElement(subMenuHolder,'minHeight',minHeight+"px");
