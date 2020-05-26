@@ -1,9 +1,18 @@
 # Responsive Template Canvas UI
 
 # Description
-A Responsive Template User Interface to be used with the HTML Canvas. The Canvas is made to fill device width/height and the Menu is collapsible. The Input Elements inside the Menu can be customized to fit your preference (Not all HTML Input Elements are pre-styled in the CSS, check the example, or **#Contents** to see which are ready for use.
+A Responsive Template User Interface to be used with the HTML Canvas. The Canvas is made to fill device width/height and the Menu is collapsible. The Input Elements inside the Menu can be customized to fit your preference.
 
 My purpose for making this project was to make it easier for myself and others to add interactivity through UI to a Canvas program.
+
+# Usage
+Make sure to use the same formatting for the Sub-Menus and HTML Input Elements as is shown in the examples in index.html so that the CSS will be applied correctly, you can however change 'name', 'id' and 'value'.
+
+Feel free to remove/add Input Elements as you please. Not all HTML Input Elements are pre-styled in the CSS, check the example, or **Contents** to see which are ready for use.
+
+Feel free to change the **main-aesthetic.css** to fit your preference, but it is adviced to steer clear from changing **main-spatial.css**
+
+If you wish to add any elements that are not pre-styled, make sure they are subject to the grid of .sub-menu in main.spatial.css.
 
 # Contents
 * **HTML**
