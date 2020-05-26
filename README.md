@@ -10,7 +10,7 @@ Make sure to use the same formatting for the Sub-Menus and HTML Input Elements a
 
 When you create a new sub-menu div containing input elements, don't forget to add a sub-menu-toggle button in the sub-menu-nav div with the same name.
 
-Feel free to remove/add Input Elements as you please. Not all HTML Input Elements are pre-styled in the CSS, check the example, or **Contents** to see which are ready for use.
+Feel free to remove/add Input Elements as you please. Not all HTML Input Elements are pre-styled in the CSS, check the [example](https://randbyyp.github.io/Responsive-Template-Canvas-UI/), or **Contents** to see which are ready for use.
 
 Feel free to change the **main-aesthetic.css** to fit your preference, but it is adviced to steer clear from changing **main-spatial.css**
 
