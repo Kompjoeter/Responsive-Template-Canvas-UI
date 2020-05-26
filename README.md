@@ -16,6 +16,10 @@ Feel free to change the **main-aesthetic.css** to fit your preference, but it is
 
 If you wish to add any elements that are not pre-styled, make sure they are subject to the grid of .sub-menu in main.spatial.css.
 
+When you mean to hook up this UI to a Canvas Project, simply bind the UI elements to your logic. A canvas element is already present in the HTML.
+
+[An example of a canvas-based project which uses this Template UI](https://randbyyp.github.io/Generation-Station-Random-Walker/)
+
 # Contents
 * **HTML**
   * index.html **(All UI Elements + Canvas and initializes all scripts.)**
