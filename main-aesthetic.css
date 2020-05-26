@@ -111,7 +111,7 @@ input
 }
 
 /*-----Text-Color-Emphasized-----*/
-.input-range label span, .input-radio p span, .link a span
+.input-range label span, .input-radio p span, .link a span, .text span
 {
     color: var(--color-text-bold);
     font-weight: bold;
