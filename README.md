@@ -8,6 +8,8 @@ My purpose for making this project was to make it easier for myself and others t
 # Usage
 Make sure to use the same formatting for the Sub-Menus and HTML Input Elements as is shown in the examples in index.html so that the CSS will be applied correctly, you can however change 'name', 'id' and 'value'.
 
+When you create a new sub-menu div containing input elements, don't forget to add a sub-menu-toggle button in the sub-menu-nav div with the same name.
+
 Feel free to remove/add Input Elements as you please. Not all HTML Input Elements are pre-styled in the CSS, check the example, or **Contents** to see which are ready for use.
 
 Feel free to change the **main-aesthetic.css** to fit your preference, but it is adviced to steer clear from changing **main-spatial.css**
