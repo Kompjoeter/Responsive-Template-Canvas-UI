@@ -84,7 +84,6 @@ button
     visibility: hidden;
     display: inline;
     grid-row: 2/3;
-    min-height: 200px;
     padding: 0;
     overflow-y: scroll;
 }
