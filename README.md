@@ -54,5 +54,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 # Contact
 
-[Twitter](https://twitter.com/RandbYyp)
-[Website](https://randbyyp.github.io/)
+[Twitter](https://twitter.com/RandbYyp)<br>[Website](https://randbyyp.github.io/)
