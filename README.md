@@ -1,5 +1,7 @@
 # Responsive Template Canvas UI
 
+# MIGHT REDO THIS PROJECT IN THE FUTURE, USING REACT. CUSTOMIZING IT IS A BIT IFFY, REACT MIGHT BE A PERFECT FIX FOR THAT
+
 # Description
 A Responsive Template User Interface to be used with the HTML Canvas. The Canvas is made to fill device width/height and the Menu is collapsible. The Input Elements inside the Menu can be customized to fit your preference.
 
